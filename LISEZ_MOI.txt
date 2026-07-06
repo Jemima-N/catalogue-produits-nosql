@@ -1,0 +1,23 @@
+PROJET NOSQL - CATALOGUE DE PRODUITS
+=====================================
+
+Contenu :
+- rapport_projet.docx (dans le dossier parent) : rapport complet (sujet,
+  justification NoSQL, diagramme ER, besoins utilisateurs, requêtes, API)
+- er_diagram.png : diagramme entité-relation du modèle de documents
+- code/db.py : connexion + peuplement de la base (mongomock, simule MongoDB)
+- code/queries.py : les 15 requêtes/agrégations MongoDB
+- code/demo.py : script de démonstration (peuple la base, exécute les 15 requêtes)
+- code/api.py : API REST Flask exposant les requêtes
+- code/app_web.py : interface web Streamlit consommant l'API
+
+Pour lancer le projet en local :
+1. pip install pymongo mongomock flask streamlit pandas requests
+2. python code/demo.py          -> démonstration en console
+3. python code/api.py           -> démarre l'API sur http://localhost:5000
+4. streamlit run code/app_web.py -> démarre l'interface web (terminal séparé)
+
+Pour utiliser une vraie base MongoDB (Atlas ou locale) au lieu de la
+simulation en mémoire : dans db.py, remplacer mongomock.MongoClient()
+par pymongo.MongoClient("mongodb+srv://...") -- tout le reste du code
+(requêtes, API, app web) fonctionne sans aucune modification.
